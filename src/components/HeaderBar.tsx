@@ -1,0 +1,41 @@
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {COLORS, FONTFAMILY, FONTSIZE, SPACING} from '../theme/theme';
+import GradientBGIcon from './GradientBGIcon';
+import ProfilePic from './ProfilePic';
+
+interface HeaderBarProps {
+  title?: string;
+}
+
+const HeaderBar: React.FC<HeaderBarProps> = ({title}) => {
+  return (
+    <View style={styles.HeaderContainer}>
+      {/* <GradientBGIcon
+        name="menu"
+        color={COLORS.primaryLightGreyHex}
+        size={FONTSIZE.size_16}
+      /> */}
+      <Text style={styles.HeaderText}>{title || "Find the best coffee for you !"}</Text>
+      <ProfilePic />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  HeaderContainer: {
+    paddingHorizontal: 30,
+    paddingTop:15,
+    paddingBottom:10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  HeaderText: {
+    fontFamily: FONTFAMILY.poppins_semibold,
+    fontSize: FONTSIZE.size_20,
+    color: '#ffffff'
+  },
+});
+
+export default HeaderBar;
